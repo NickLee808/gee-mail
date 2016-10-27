@@ -2,17 +2,273 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+		<title>GUH-MAIL, by Nick Lee</title>
     <script>
       window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+
+//BEGIN JAVASCRIPT TRANSMISSION
+
+
+//LOAD INITIAL EMAILS
+
+var counter = 0;
+var emailBox = document.createElement('div');
+emailBox.id = 'emailNumber';
+
+function loadEmail(messages){
+	for(var i=0; i<messages.length; i++){
+
+
+
+
+
+		//OPEN EMAIL BOX
+		var emailBox = document.createElement('div');
+			emailBox.id = 'emailNumber' + counter++;
+			emailBox.className = 'emailClass';
+
+
+
+
+
+		//LINE BREAK
+		var lineBreak = document.createElement("br");
+		emailBox.appendChild(lineBreak);
+
+
+
+
+
+		//DATE
+		var dateHeader = document.createElement('div');
+			dateHeader.innerHTML = 'DATE:';
+
+		emailBox.appendChild(dateHeader);
+
+		var emailDate = document.createElement('div');
+			emailDate.className = 'dateContent';		
+			emailDate.innerHTML = messages[i].date;
+
+		dateHeader.appendChild(emailDate);
+
+
+
+
+
+		//SENDER
+		var senderHeader = document.createElement('div');
+			senderHeader.innerHTML = 'SENDER:';
+
+		emailBox.appendChild(senderHeader);
+
+		var emailSender = document.createElement('div');
+			emailSender.className = 'senderContent';
+			emailSender.innerHTML = messages[i].sender;
+
+		emailBox.appendChild(emailSender);
+
+
+
+
+
+		//SUBJECT
+		var subjectHeader = document.createElement('div');
+			subjectHeader.innerHTML = 'MESSAGE:';
+
+		emailBox.appendChild(subjectHeader);
+
+		var emailSubject = document.createElement('div');
+			emailSubject.className = 'subjectContent';
+			emailSubject.innerHTML = messages[i].subject;
+
+		emailBox.appendChild(emailSubject);
+
+
+
+
+
+		//BODY
+		var emailBody = document.createElement('div');
+			emailBody.className = 'bodyContent';			
+			emailBody.innerHTML = messages[i].body;
+
+		emailSubject.appendChild(emailBody);
+
+
+
+
+		
+
+		var mainContainer = document.getElementById('main');
+
+		mainContainer.appendChild(emailBox);
+		//CLOSE EMAIL BOX
+
+	}
+
+}
+
+
+
+
+//LOAD INTO EMAIL FUNCTION
+loadEmail(window.geemails);
+
+
+
+
+//LOAD NEW EMAILS
+
+function loadNew(){
+	setInterval(function(){ 
+  	var inboxTotal = document.getElementById('counter');
+    	inboxTotal.innerHTML = counter;  
+
+
+
+
+    //OPEN EMAIL BOX
+		var newEmailBox = document.createElement('div');
+			newEmailBox.id = "emailNumber" + counter;
+			newEmailBox.className = "newEmailClass";
+
+
+
+
+
+		//LINE BREAK
+		var newLineBreak = document.createElement("br");
+		newEmailBox.appendChild(newLineBreak);
+
+
+
+
+
+		//NEW DATE
+		var newEmailDate = document.createElement('div');
+			newEmailDate.innerHTML = getNewMessage().date;
+			newEmailDate.className = "newDateContent";
+
+		newEmailBox.appendChild(newEmailDate);
+
+
+
+
+
+		//NEW SENDER
+		var newEmailSender = document.createElement('div');
+			newEmailSender.innerHTML = getNewMessage().sender;
+			newEmailSender.className = "newSenderContent";
+
+		newEmailBox.appendChild(newEmailSender);
+
+
+
+
+
+		//NEW SUBJECT
+		var newEmailSubject = document.createElement('div');
+			newEmailSubject.innerHTML = getNewMessage().subject;
+			newEmailSubject.className = "newSubjectContent";
+
+		newEmailBox.appendChild(newEmailSubject);
+
+
+
+
+
+		//NEW BODY
+		var newEmailBody = document.createElement('div');
+			newEmailBody.innerHTML = getNewMessage().body;
+			newEmailBody.className = "newBodyContent";
+
+		newEmailSubject.appendChild(newEmailBody);		
+
+    document.getElementById('newEmailBox').appendChild(newEmailBox);
+    counter++;
+
+
+
+
+
+//OPEN-CLOSE TOGGLE FOR NEW MAILS
+newEmailSubject.addEventListener('click', newToggle);
+
+function newToggle(){
+  var newBodyToggle = this.querySelectorAll('.newBodyContent')[0];
+  if (newBodyToggle.style.display === 'none'){
+    newBodyToggle.style.display = 'block';
+  }else{
+    newBodyToggle.style.display = 'none';
+  }
+}
+
+
+
+
+
+
+
+
+  },1500);
+}
+
+
+
+
+
+
+loadNew(getNewMessage());
+
+
+
+
+
+
+
+//TARGET SUBJECT FOR OPEN-CLOSE TOGGLE OF INITIAL TEN MAILS
+var targetSubject = document.getElementsByClassName('subjectContent');
+
+for (var j = 0; j < targetSubject.length; j++){
+  targetSubject[j].addEventListener('click', toggle);
+}
+
+
+
+//OPEN-CLOSE TOGGLE FOR INITIAL TEN MAILS
+function toggle(){
+  var bodyToggle = this.querySelectorAll('.bodyContent')[0];
+  if (bodyToggle.style.display === 'none'){
+    bodyToggle.style.display = 'block';
+  }else{
+    bodyToggle.style.display = 'none';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+//END JAVASCRIPT TRANSMISSION
+};
+
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
-			Build Me!
+   	  <h1 id = "GUH-MAIL">GUH-MAIL</h1>
+   	  <img id="arnold" src="images/Dj2T-g.gif">
+   	  <p id="hello">HELLO'ING UR WORLD SINCE 2016</p>
+   	  <div id="inbox">INBOX
+   	  	<div id = "counter"></div>
+   	  </div>
 		</div>
+		<div id = "newEmailBox"></div>
 	</body>
 </html>

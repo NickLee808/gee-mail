@@ -1,0 +1,45 @@
+.bodyContent {  
+	display: none;
+  background-color: #e6f7ff;
+  font-weight: normal;
+}
+
+.bodyContent.show {
+	display: inline;
+}
+
+.newBodyContent {
+	display: none;
+	background-color: #ffe6e6;
+	font-weight: normal;
+}
+
+.subjectContent {
+	font-weight: bold;
+}
+
+.newSubjectContent {
+	font-weight: bold;
+}
+
+h1#GUH-MAIL {
+	text-align: center;
+	background-color: red;
+	color: white;
+}
+
+img#arnold {
+	display:block;
+	margin: auto;
+	width: 50%;
+}
+
+p#hello {
+	text-align: center;
+	font-weight: bold;
+}
+
+div#inbox {
+	text-align: center;
+	font-weight: bold;
+}
