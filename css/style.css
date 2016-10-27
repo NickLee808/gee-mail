@@ -1,31 +1,102 @@
+body {
+	background-color: #e6e6e6;
+	font-family: "Arial";
+}
+
+.emailClass {
+	border: 2px solid blue;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  background-color: white;
+  padding: 5px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newEmailClass {
+	border: 2px solid red;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  background-color: white;
+  padding: 5px;
+  max-width: 750px;
+}
+
+.dateHead {
+}
+
+.newDateHead {
+}
+
+.dateContent {
+}
+
+.newDateContent{
+}
+
+.newDateHead {
+}
+
+.sendHead {
+}
+
+.newSendHead{
+}
+
+.senderContent {
+}
+
+.newSenderContent{
+}
+
+.subjHead {
+}
+
+.newSubjHead{
+}
+
+.subjectContent{
+}
+
+.newSubjectContent{
+}
+
 .bodyContent {  
 	display: none;
   background-color: #e6f7ff;
   font-weight: normal;
-}
-
-.bodyContent.show {
-	display: inline;
+  color: black;
 }
 
 .newBodyContent {
 	display: none;
 	background-color: #ffe6e6;
 	font-weight: normal;
+	color: black;
 }
 
 .subjectContent {
 	font-weight: bold;
+	color: white;
+	background-color: blue;
 }
 
 .newSubjectContent {
 	font-weight: bold;
+	color: white;
+	background-color: red;
 }
 
 h1#GUH-MAIL {
 	text-align: center;
 	background-color: red;
 	color: white;
+	font-size: 70px;
 }
 
 img#arnold {

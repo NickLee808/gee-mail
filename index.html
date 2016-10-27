@@ -31,17 +31,10 @@ function loadEmail(messages){
 
 
 
-		//LINE BREAK
-		var lineBreak = document.createElement("br");
-		emailBox.appendChild(lineBreak);
-
-
-
-
-
 		//DATE
 		var dateHeader = document.createElement('div');
-			dateHeader.innerHTML = 'DATE:';
+			dateHeader.className = "dateHead";
+			dateHeader.innerHTML = "DATE:";
 
 		emailBox.appendChild(dateHeader);
 
@@ -57,7 +50,8 @@ function loadEmail(messages){
 
 		//SENDER
 		var senderHeader = document.createElement('div');
-			senderHeader.innerHTML = 'SENDER:';
+			senderHeader.className = "sendHead";
+			senderHeader.innerHTML = "SENDER:";
 
 		emailBox.appendChild(senderHeader);
 
@@ -65,7 +59,7 @@ function loadEmail(messages){
 			emailSender.className = 'senderContent';
 			emailSender.innerHTML = messages[i].sender;
 
-		emailBox.appendChild(emailSender);
+		senderHeader.appendChild(emailSender);
 
 
 
@@ -73,6 +67,7 @@ function loadEmail(messages){
 
 		//SUBJECT
 		var subjectHeader = document.createElement('div');
+			subjectHeader.className = "subjHead";
 			subjectHeader.innerHTML = 'MESSAGE:';
 
 		emailBox.appendChild(subjectHeader);
@@ -81,7 +76,7 @@ function loadEmail(messages){
 			emailSubject.className = 'subjectContent';
 			emailSubject.innerHTML = messages[i].subject;
 
-		emailBox.appendChild(emailSubject);
+		subjectHeader.appendChild(emailSubject);
 
 
 
@@ -93,7 +88,6 @@ function loadEmail(messages){
 			emailBody.innerHTML = messages[i].body;
 
 		emailSubject.appendChild(emailBody);
-
 
 
 
@@ -109,11 +103,8 @@ function loadEmail(messages){
 }
 
 
-
-
 //LOAD INTO EMAIL FUNCTION
 loadEmail(window.geemails);
-
 
 
 
@@ -136,26 +127,32 @@ function loadNew(){
 
 
 
-		//LINE BREAK
-		var newLineBreak = document.createElement("br");
-		newEmailBox.appendChild(newLineBreak);
-
-
-
-
 
 		//NEW DATE
+		var newDateHeader = document.createElement('div');
+			newDateHeader.className = "newDateHead";
+			newDateHeader.innerHTML = "DATE:";
+
+		newEmailBox.appendChild(newDateHeader);
+
 		var newEmailDate = document.createElement('div');
 			newEmailDate.innerHTML = getNewMessage().date;
 			newEmailDate.className = "newDateContent";
 
-		newEmailBox.appendChild(newEmailDate);
+		newDateHeader.appendChild(newEmailDate);
 
 
 
 
 
 		//NEW SENDER
+		var newSendHead = document.createElement('div');
+			newSendHead.className = "newSendHead";
+			newSendHead.innerHTML = "SENDER:";
+
+		newEmailBox.appendChild(newSendHead);
+
+
 		var newEmailSender = document.createElement('div');
 			newEmailSender.innerHTML = getNewMessage().sender;
 			newEmailSender.className = "newSenderContent";
@@ -167,6 +164,12 @@ function loadNew(){
 
 
 		//NEW SUBJECT
+		var newSubjHeader = document.createElement('div');
+			newSubjHeader.className = "newSubjHead";
+			newSubjHeader.innerHTML = "MESSAGE:";
+
+		newEmailBox.appendChild(newSubjHeader);
+
 		var newEmailSubject = document.createElement('div');
 			newEmailSubject.innerHTML = getNewMessage().subject;
 			newEmailSubject.className = "newSubjectContent";
@@ -205,24 +208,13 @@ function newToggle(){
 
 
 
-
-
-
-
-
-  },1500);
+//COUNTER INTERVAL
+  },1000);
 }
 
 
 
-
-
-
 loadNew(getNewMessage());
-
-
-
-
 
 
 
@@ -244,11 +236,6 @@ function toggle(){
     bodyToggle.style.display = 'none';
   }
 }
-
-
-
-
-
 
 
 
